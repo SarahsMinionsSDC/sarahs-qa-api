@@ -3,7 +3,7 @@ const controller = require('./controller.js')
 
 router
   .route('/qa/questions/:product_id')
-  .get(controller.get)
+  .get(controller.getQuestions)
   .post(controller.postQuestion)
 
 router
@@ -12,19 +12,19 @@ router
   .post(controller.postAnswer)
 
 router
+  .route('/qa/questions/:question_id/helpful')
+  .put(controller.voteQuestionHelpful)
+
+router
+  .route('/qa/answers/:answer_id/helpful')
+  .put(controller.voteAnswerHelpful)
+
+router
   .route('/qa/questions/:question_id/report')
   .put(controller.reportQuestion)
 
 router
   .route('/qa/answers/:answer_id/report')
   .put(controller.reportAnswer)
-
-router
-  .route('/qa/questions/:question_id/helpful')
-  .put(controller.voteQuestionHelpful)
-
-  router
-  .route('/qa/answers/:answer_id/helpful')
-  .put(controller.voteAnswerHelpful)
 
 module.exports = router

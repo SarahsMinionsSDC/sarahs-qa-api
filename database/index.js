@@ -1,5 +1,11 @@
 const { Client } = require('pg')
-const login = require('./dblogin.js')
 
-const client = new Client(login)
+const client = new Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'qa'
+})
+
 client.connect(() => (console.log('CONNECTED!')))
+
+module.exports = client
