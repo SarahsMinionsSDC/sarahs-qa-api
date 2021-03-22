@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const router = require('./router.js')
 const PORT = 4000
 const app = express()
+const newrelic = require('newrelic');
 
 app.use(bodyParser.json())
 app.use(cors())

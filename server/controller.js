@@ -20,20 +20,20 @@ const controller = {
     })
   },
   postQuestion: (req, res) => {
-    dbhelpers.postQuestion(req, (err, data) => {
+    dbhelpers.postQuestion(req, (err, results) => {
       if (err) {
         res.status(400).send(err);
       } else {
-        res.status(200).send(data);
+        res.status(200).send(results);
       }
     })
   },
   postAnswer: (req, res) => {
-    dbhelpers.postAnswer(req, (err, data) => {
+    dbhelpers.postAnswer(req, (err, results) => {
       if (err) {
         res.status(400).send(err)
       } else {
-        res.status(200).send(data)
+        res.status(200).send(results)
       }
     })
   },
